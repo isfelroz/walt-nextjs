@@ -7,12 +7,28 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			fontFamily: {
+				strawford: 'var(--strawford)',
+			},
 			colors: {
-				mascarpone: '#FFFBEF',
-				rouge: '#DD534C',
-				canard: '#084851',
-				abysse: '#062E33',
-				lime: '#4ADDA8',
+				primary: 'var(--primary-color)',
+				secondary: 'var(--secondary-color)',
+				default: 'var(--text-color)',
+				background: 'var(--bg-color)',
+				'background-alt': 'var(--bg-alt-color)',
+				highlight: 'var(--highlight-color)',
+				'highlight-alt': 'var(--highlight-alt-color)',
+				'btn-bg': 'var(--button-bg-color)',
+				'btn-bg-hover': 'var(--button-bg-hover-color)',
+				'btn-text': 'var(--button-text-color)',
+				'btn-text-hover': 'var(--button-text-hover-color)',
+				link: 'var(--link-color)',
+				'link-hover': 'var(--link-hover-color)',
+				h1: 'var(--h1-color)',
+				h2: 'var(--h2-color)',
+				h3: 'var(--h3-color)',
+				h4: 'var(--h4-color)',
+				p: 'var(--p-color)',
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
