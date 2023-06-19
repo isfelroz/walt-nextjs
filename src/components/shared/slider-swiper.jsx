@@ -14,7 +14,7 @@ const config = {
 
 export default function SliderSwiper({ slides = [] }) {
 	return (
-		<Swiper spaceBetween={16} slidesPerView={2} loop lazyPreloadPrevNext={2}>
+		<Swiper className="" spaceBetween={16} slidesPerView={2} loop lazyPreloadPrevNext={2}>
 			{slides.map((slide, key) => {
 				return (
 					<SwiperSlide className="" key={key}>

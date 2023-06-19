@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Text from '../shared/text'
 import clsx from 'clsx'
 import SliderSwiper from '../shared/slider-swiper'
+import TextText from '../blocks/text-text'
 
 const text =
 	'<p>Nous sommes une agence digitale où <strong>stratégie</strong>, design, technologie et webmarketing se rencontrent pour garantir le succès de votre communication sur le Web.</p>'
@@ -20,12 +21,11 @@ export default function HeroHome({
 	return (
 		<section className={clsx('bg-background', palette?.palette_choice)}>
 			<Container>
-				<div className="grid grid-cols-2 gap-[126px] py-[84px]">
-					<Text {...text_left} />
-					<Text {...text_right} />
-				</div>
+				<TextText text1={text_left} text2={text_right} />
 			</Container>
-			<div>{images_slider?.length && <SliderSwiper slides={images_slider} />}</div>
+			<div className="px-8 [&>.swiper]:overflow-visible">
+				{images_slider?.length && <SliderSwiper slides={images_slider} />}
+			</div>
 		</section>
 	)
 }

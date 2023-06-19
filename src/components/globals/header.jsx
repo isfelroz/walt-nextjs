@@ -35,10 +35,10 @@ export default function Header({ logo, menu }) {
 								<Link href="/">
 									<div
 										className={clsx(
-											'external-svg stroke-[3.6] stroke-link hover:stroke-link-hover transition-all duration-200',
+											'external-svg  [&_*]:fill-current  text-link hover:text-link-hover  transition-all duration-200',
 											{
 												'h-[60px]': minified,
-												'h-[100px]': !minified,
+												'h-[70px] lg:h-[100px]': !minified,
 											}
 										)}
 										dangerouslySetInnerHTML={{ __html: logo.html }}
