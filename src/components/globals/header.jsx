@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Container from '../shared/container'
 import clsx from 'clsx'
 import HeaderResponsive from './header-responsive'
+import ExternalSvg from '../shared/external-svg'
 
 export default function Header({ logo, menu }) {
 	const [minified, setMinified] = useState('')
@@ -13,7 +14,7 @@ export default function Header({ logo, menu }) {
 		let value = window.scrollY
 		if (value > 50) {
 			setMinified(true)
-		} else if (value < 1) {
+		} else if ((value = 0)) {
 			setMinified(false)
 		}
 	}
@@ -25,15 +26,16 @@ export default function Header({ logo, menu }) {
 			window.removeEventListener('scroll', onScroll)
 		}
 	}, [])
+
 	return (
-		<section id="header" className={clsx('group sticky top-0 w-full dark', { minified })}>
+		<section id="header" className={clsx('group sticky top-0 z-10 w-full dark', { minified })}>
 			<div className="bg-background py-4 group-[&.minified]:py-2 transition-all isolate">
 				<Container>
 					<div className="wrapper flex justify-between items-center lg:grid lg:grid-cols-[20%_1fr_20%]">
 						<div className="">
 							{logo && (
 								<Link href="/">
-									<div
+									<ExternalSvg
 										className={clsx(
 											'external-svg  [&_*]:fill-current  text-link hover:text-link-hover  transition-all duration-200',
 											{
@@ -50,13 +52,14 @@ export default function Header({ logo, menu }) {
 							className="main_navigation hidden lg:flex justify-center items-center gap-12 h-full"
 							role="navigation"
 						>
-							<a href="">L’agence</a>
-
-							<a href="">Nos expertises</a>
-
-							<a href="">Nos réalisations</a>
-
-							<a href="">News &amp; jobs</a>
+							{menu?.length &&
+								menu.map((menuItem, key) => {
+									return (
+										<Link key={key} href={menuItem.path.path}>
+											{menuItem.title}
+										</Link>
+									)
+								})}
 						</nav>
 						<div className="h-full">
 							<div className="flex gap-4 items-center h-full justify-end">

@@ -30,7 +30,7 @@ export default async function RootLayout({ children }) {
 	const { header, themeVars } = await getGlobals()
 	return (
 		<html lang="en" className="bg-background">
-			<body className={`${strawfond.variable} ${strawfond.className}`}>
+			<body className={`${strawfond.variable} ${strawfond.className} isolate`}>
 				<Theme variables={themeVars} />
 				<Header {...header} />
 				{children}

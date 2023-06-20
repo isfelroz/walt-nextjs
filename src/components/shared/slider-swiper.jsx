@@ -23,9 +23,9 @@ export default function SliderSwiper({ slides = [] }) {
 								className="absolute top-0 left-0 h-full w-full object-cover rounded-2xl"
 								src={slide.url}
 								alt={slide.alt}
-								width={600}
-								height={400}
-								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+								width={slide.width}
+								height={slide.height}
+								sizes="50vw"
 							/>
 						</div>
 					</SwiperSlide>

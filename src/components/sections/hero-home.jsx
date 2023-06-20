@@ -19,7 +19,12 @@ export default function HeroHome({
 	if (!display) return null
 
 	return (
-		<section className={clsx('bg-background', palette?.palette_choice)}>
+		<section
+			className={clsx(
+				'bg-background flex flex-col [&_.swiper]:mb-[-100px]',
+				palette?.palette_choice
+			)}
+		>
 			<Container>
 				<TextText text1={text_left} text2={text_right} />
 			</Container>

@@ -1,0 +1,33 @@
+import { getPageByPath, getPagesSlugs } from '@/libs/wordpress'
+import { notFound } from 'next/navigation'
+
+export async function generateStaticParams() {
+	const pages = await getPagesSlugs()
+
+	const slugs = pages
+		.map((page) => {
+			const url = new URL(page.link)
+			const slug = url.pathname.split('/').filter((path) => path != '')
+
+			return {
+				slug,
+			}
+		})
+		.filter(({ slug }) => slug.length)
+
+	return slugs
+}
+
+export default async function Page({ params }) {
+	const path = params.slug.join('/')
+	const page = await getPageByPath({ path })
+	if (!page) {
+		notFound()
+		return null
+	}
+
+	const { acf } = page?.acf
+	console.log(acf)
+
+	return null
+}

@@ -63,10 +63,70 @@ export async function getGlobals() {
 	}
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                    PAGES                                   */
+/* -------------------------------------------------------------------------- */
+
 export async function getHomePage() {
 	try {
 		const res = await wordpressFetch({
 			path: '/pages/home',
+			next: { revalidate: 900 },
+			// cache: 'force-cache',
+		})
+
+		const data = await res?.body?.data
+		if (!data) throw new Error('No data found')
+		return data
+	} catch (e) {
+		console.log(e)
+		return null
+	}
+}
+
+export async function getPagesSlugs() {
+	try {
+		const res = await wordpressFetch({
+			path: '/pages',
+			cache: 'no-store',
+			// next: { revalidate: 900 },
+			// cache: 'force-cache',
+		})
+
+		const data = await res?.body?.data
+		if (!data) throw new Error('No data found')
+		return data
+	} catch (e) {
+		console.log(e)
+		return null
+	}
+}
+
+export async function getPageByPath({ path }) {
+	try {
+		const res = await wordpressFetch({
+			path: '/pages/' + path,
+			next: { revalidate: 900 },
+			// cache: 'force-cache',
+		})
+
+		const data = await res?.body?.data
+		if (!data) throw new Error('No data found')
+		return data
+	} catch (e) {
+		console.log(e)
+		return null
+	}
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    MEDIA                                   */
+/* -------------------------------------------------------------------------- */
+
+export async function getMediaById(id) {
+	try {
+		const res = await wordpressFetch({
+			path: '/media/' + id,
 			next: { revalidate: 900 },
 			// cache: 'force-cache',
 		})

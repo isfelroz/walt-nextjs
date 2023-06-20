@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+	--xs-space: 8px;
+	--sm-space: 16px;
+	--md-space: 32px;
+	--lg-space: 48px;
+	--xl-space: 108px;
+
+	@media (max-width: 1024px) {
+		--h1-size: var(--h1-size-mobil) !important;
+		--h2-size: var(--h2-size-mobil) !important;
+		--h3-size: var(--h3-size-mobil) !important;
+		--h4-size: var(--h4-size-mobil) !important;
+		--h5-size: var(--h5-size-mobil) !important;
+		--h6-size: var(--h6-size-mobil) !important;
+		--p-size: var(--p-size-mobil) !important;
+	}
+}
+
 html {
 	position: relative;
 	/* width: 100vw; */
@@ -78,18 +96,6 @@ a {
 }
 a:hover {
 	color: var(--link-hover-color);
-}
-
-:root {
-	@media (max-width: 1024px) {
-		--h1-size: var(--h1-size-mobil) !important;
-		--h2-size: var(--h2-size-mobil) !important;
-		--h3-size: var(--h3-size-mobil) !important;
-		--h4-size: var(--h4-size-mobil) !important;
-		--h5-size: var(--h5-size-mobil) !important;
-		--h6-size: var(--h6-size-mobil) !important;
-		--p-size: var(--p-size-mobil) !important;
-	}
 }
 
 .external-svg svg {
