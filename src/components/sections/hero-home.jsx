@@ -28,7 +28,7 @@ export default function HeroHome({
 			<Container>
 				<TextText text1={text_left} text2={text_right} />
 			</Container>
-			<div className="px-8 [&>.swiper]:overflow-visible">
+			<div className="px-8  [&>.swiper]:overflow-visible">
 				{images_slider?.length && <SliderSwiper slides={images_slider} />}
 			</div>
 		</section>

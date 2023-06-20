@@ -13,7 +13,7 @@ export default async function Home() {
 	const { hero, blocks } = home?.acf
 
 	return (
-		<main className="isolate">
+		<main className="isolate overflow-x-hidden">
 			{hero && <HeroHome {...hero} />}
 			{blocks?.length && <Flexible offset={true} blocks={blocks} />}
 		</main>
