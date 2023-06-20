@@ -1,3 +1,5 @@
+import Flexible from '@/components/sections/flexible'
+import HeroHome from '@/components/sections/hero-home'
 import { getPageByPath, getPagesSlugs } from '@/libs/wordpress'
 import { notFound } from 'next/navigation'
 
@@ -26,8 +28,12 @@ export default async function Page({ params }) {
 		return null
 	}
 
-	const { acf } = page?.acf
-	console.log(acf)
+	const { hero, blocks } = page?.acf
 
-	return null
+	return (
+		<main className="isolate">
+			{hero && <HeroHome {...hero} />}
+			{blocks?.length && <Flexible offset={true} blocks={blocks} />}
+		</main>
+	)
 }
