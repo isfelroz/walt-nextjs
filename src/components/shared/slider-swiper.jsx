@@ -17,7 +17,7 @@ export default function SliderSwiper({ slides = [] }) {
 		<Swiper className="" spaceBetween={16} slidesPerView={2} loop lazyPreloadPrevNext={2}>
 			{slides.map((slide, key) => {
 				return (
-					<SwiperSlide className="" key={key}>
+					<SwiperSlide style={{ width: 'calc(51% - 16px)', marginRight: '16px' }} key={key}>
 						<div className="relative aspect-[3/2]">
 							<Image
 								className="absolute top-0 left-0 h-full w-full object-cover rounded-2xl"
