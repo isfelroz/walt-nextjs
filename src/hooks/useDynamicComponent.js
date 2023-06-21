@@ -4,7 +4,8 @@ export function useDynamicComponent({ component }) {
 	switch (component) {
 		case 'text':
 			return dynamic(() => import('@/components/shared/text'))
-			return null
+		case 'media':
+			return dynamic(() => import('@/components/shared/media'))
 
 		default:
 			return null
