@@ -102,3 +102,16 @@ a:hover {
 	height: inherit;
 	width: inherit;
 }
+
+/* -------------------------------------------------------------------------- */
+/*                               GLOBAL CONTENT                               */
+/* -------------------------------------------------------------------------- */
+.global_content *:where(h1, h2, h3, h4, h5, h6) + *:not(:where(h1, h2, h3, h4, h5, h6)),
+.global_content *:not(:where(h1, h2, h3, h4, h5, h6)) + *:where(h1, h2, h3, h4, h5, h6) {
+	margin-top: 3rem;
+}
+.global_content
+	*:where(p, ol, ul, blockquote, iframe, img)
+	+ *:where(p, ol, ul, blockquote, iframe, img) {
+	margin-top: 1.5rem;
+}

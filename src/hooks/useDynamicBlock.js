@@ -8,6 +8,10 @@ export function useDynamicBlock({ block }) {
 			return dynamic(() => import('@/components/blocks/media'))
 		case 'actualites':
 			return dynamic(() => import('@/components/blocks/actualites'))
+		case 'logos':
+			return dynamic(() => import('@/components/blocks/logos'))
+		case 'text':
+			return dynamic(() => import('@/components/blocks/text'))
 
 		default:
 			return null

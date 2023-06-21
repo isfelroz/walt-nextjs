@@ -18,14 +18,14 @@ export default function SliderSwiper({ slides = [] }) {
 			{slides.map((slide, key) => {
 				return (
 					<SwiperSlide style={{ width: 'calc(51% - 16px)', marginRight: '16px' }} key={key}>
-						<div className="relative aspect-[3/2]">
+						<div className="relative aspect-[2/3] lg:aspect-[3/2]">
 							<Image
 								className="absolute top-0 left-0 h-full w-full object-cover rounded-2xl"
 								src={slide.url}
 								alt={slide.alt}
 								width={slide.width}
 								height={slide.height}
-								sizes="50vw"
+								sizes="60vw"
 							/>
 						</div>
 					</SwiperSlide>

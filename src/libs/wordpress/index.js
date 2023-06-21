@@ -47,7 +47,7 @@ export async function getGlobals() {
 	try {
 		const res = await wordpressFetch({
 			path: '/globals',
-			// cache: 'no-store',
+			next: { revalidate: 900 },
 		})
 		const data = await res?.body?.data
 		if (!data) throw new Error('No globals')
@@ -58,7 +58,6 @@ export async function getGlobals() {
 
 		return data
 	} catch (e) {
-		console.log(e)
 		return null
 	}
 }
@@ -72,14 +71,12 @@ export async function getHomePage() {
 		const res = await wordpressFetch({
 			path: '/pages/home',
 			next: { revalidate: 900 },
-			// cache: 'force-cache',
 		})
 
 		const data = await res?.body?.data
 		if (!data) throw new Error('No data found')
 		return data
 	} catch (e) {
-		console.log(e)
 		return null
 	}
 }
@@ -88,16 +85,13 @@ export async function getPagesSlugs() {
 	try {
 		const res = await wordpressFetch({
 			path: '/pages',
-			cache: 'no-store',
-			// next: { revalidate: 900 },
-			// cache: 'force-cache',
+			next: { revalidate: 900 },
 		})
 
 		const data = await res?.body?.data
 		if (!data) throw new Error('No data found')
 		return data
 	} catch (e) {
-		console.log(e)
 		return null
 	}
 }
@@ -107,14 +101,12 @@ export async function getPageByPath({ path }) {
 		const res = await wordpressFetch({
 			path: '/pages/' + path,
 			next: { revalidate: 900 },
-			// cache: 'force-cache',
 		})
 
 		const data = await res?.body?.data
 		if (!data) throw new Error('No data found')
 		return data
 	} catch (e) {
-		console.log(e)
 		return null
 	}
 }
@@ -128,14 +120,12 @@ export async function getMediaById(id) {
 		const res = await wordpressFetch({
 			path: '/media/' + id,
 			next: { revalidate: 900 },
-			// cache: 'force-cache',
 		})
 
 		const data = await res?.body?.data
 		if (!data) throw new Error('No data found')
 		return data
 	} catch (e) {
-		console.log(e)
 		return null
 	}
 }

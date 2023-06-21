@@ -1,6 +1,7 @@
 import { getMediaById } from '@/libs/wordpress'
 import Container from '../shared/container'
 import Block from './block'
+import Actuality from '../shared/actuality'
 
 export default async function Actualites({ content, block_options }) {
 	const { title } = content
@@ -8,7 +9,12 @@ export default async function Actualites({ content, block_options }) {
 		<Block options={block_options}>
 			<Container>
 				<div>
-					<h3>{title}</h3>
+					<h3 className="mb-8">{title}</h3>
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+						<Actuality />
+						<Actuality />
+						<Actuality />
+					</div>
 				</div>
 			</Container>
 		</Block>
