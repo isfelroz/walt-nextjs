@@ -12,6 +12,8 @@ export function useDynamicBlock({ block }) {
 			return dynamic(() => import('@/components/blocks/logos'))
 		case 'text':
 			return dynamic(() => import('@/components/blocks/text'))
+		case 'columns-image-text':
+			return dynamic(() => import('@/components/blocks/columns-image-text'))
 
 		default:
 			return null

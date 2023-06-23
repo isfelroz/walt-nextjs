@@ -61,7 +61,7 @@ h1 {
 
 h2 {
 	color: var(--h2-color);
-	font-size: var(--h3-size);
+	font-size: var(--h2-size);
 	line-height: var(--h2-leading);
 	font-weight: var(--h2-weight);
 }
@@ -90,14 +90,6 @@ blockquote {
 	font-weight: var(--p-weight);
 }
 
-a {
-	color: var(--link-color);
-	transition: all ease 200ms;
-}
-a:hover {
-	color: var(--link-hover-color);
-}
-
 .external-svg svg {
 	height: inherit;
 	width: inherit;
@@ -114,4 +106,18 @@ a:hover {
 	*:where(p, ol, ul, blockquote, iframe, img)
 	+ *:where(p, ol, ul, blockquote, iframe, img) {
 	margin-top: 1.5rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 ANIMATIONS                                 */
+/* -------------------------------------------------------------------------- */
+
+@keyframes scrolling-text {
+	from {
+		transform: translate(0, 0);
+	}
+
+	to {
+		transform: translate(-100%, 0);
+	}
 }

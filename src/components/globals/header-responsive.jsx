@@ -16,11 +16,11 @@ export default function HeaderResponsive({ menu, setMinified }) {
 	}, [open, setMinified])
 	return (
 		<div className="lg:hidden">
-			<button class="h-[40px] group/toggle" onClick={() => setOpen(!open)}>
+			<button className="h-[40px] group/toggle" onClick={() => setOpen(!open)}>
 				<div className="space-y-2 ">
-					<span class="block w-8 h-0.5 bg-btn-bg group-hover/toggle:bg-btn-bg-hover transition duration-300"></span>
-					<span class="block w-5 h-0.5 bg-btn-bg group-hover/toggle:bg-btn-bg-hover transition duration-300"></span>
-					<span class="block w-8 h-0.5 bg-btn-bg group-hover/toggle:bg-btn-bg-hover transition duration-300"></span>
+					<span className="block w-8 h-0.5 bg-btn-bg group-hover/toggle:bg-btn-bg-hover transition duration-300"></span>
+					<span className="block w-5 h-0.5 bg-btn-bg group-hover/toggle:bg-btn-bg-hover transition duration-300"></span>
+					<span className="block w-8 h-0.5 bg-btn-bg group-hover/toggle:bg-btn-bg-hover transition duration-300"></span>
 				</div>
 			</button>
 			<div

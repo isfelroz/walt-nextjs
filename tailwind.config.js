@@ -24,11 +24,29 @@ module.exports = {
 				'btn-text-hover': 'var(--button-text-hover-color)',
 				link: 'var(--link-color)',
 				'link-hover': 'var(--link-hover-color)',
-				h1: 'var(--h1-color)',
-				h2: 'var(--h2-color)',
-				h3: 'var(--h3-color)',
-				h4: 'var(--h4-color)',
-				p: 'var(--p-color)',
+				'h1-color': 'var(--h1-color)',
+				'h2-color': 'var(--h2-color)',
+				'h3-color': 'var(--h3-color)',
+				'h4-color': 'var(--h4-color)',
+				'p-color': 'var(--p-color)',
+			},
+			fontSize: {
+				h1: [
+					'var(--h1-size)',
+					{
+						lineHeight: 'var(--h1-leading)',
+						fontWeight: 'var(--h1-weight)',
+						fontFamily: 'var(--h1-family)',
+					},
+				],
+				h2: [
+					'var(--h2-size)',
+					{
+						lineHeight: 'var(--h2-leading)',
+						fontWeight: 'var(--h2-weight)',
+						fontFamily: 'var(--h2-family)',
+					},
+				],
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

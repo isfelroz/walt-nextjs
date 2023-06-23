@@ -28,8 +28,8 @@ export default function Header({ logo, menu }) {
 	}, [])
 
 	return (
-		<section id="header" className={clsx('group sticky top-0 z-10 w-full dark', { minified })}>
-			<div className="bg-background py-4 group-[&.minified]:py-2 transition-all isolate">
+		<header id="header" className={clsx('group sticky top-0 z-10 w-full dark', { minified })}>
+			<div className="bg-background py-4 group-[&.minified]:py-2 transition-all isolate mb-[-1px]">
 				<Container>
 					<div className="wrapper flex justify-between items-center lg:grid lg:grid-cols-[20%_1fr_20%]">
 						<div className="">
@@ -55,7 +55,11 @@ export default function Header({ logo, menu }) {
 							{menu?.length &&
 								menu.map((menuItem, key) => {
 									return (
-										<Link key={key} href={menuItem.path.path}>
+										<Link
+											key={key}
+											href={menuItem.path.path}
+											className="text-link hover:text-link-hover transition"
+										>
 											{menuItem.title}
 										</Link>
 									)
@@ -107,6 +111,6 @@ export default function Header({ logo, menu }) {
 					</div>
 				</Container>
 			</div>
-		</section>
+		</header>
 	)
 }

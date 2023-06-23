@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import { getGlobals } from '@/libs/wordpress'
 import Header from '@/components/globals/header'
 import Theme from '@/components/globals/theme'
+import Footer from '@/components/globals/footer'
 
 export const metadata = {
 	title: 'Create Next App',
@@ -27,13 +28,14 @@ const strawfond = localFont({
 })
 
 export default async function RootLayout({ children }) {
-	const { header, themeVars } = await getGlobals()
+	const { header, themeVars, footer } = await getGlobals()
 	return (
 		<html lang="en" className="bg-background">
 			<body className={`${strawfond.variable} ${strawfond.className} isolate`}>
 				<Theme variables={themeVars} />
 				<Header {...header} />
 				{children}
+				<Footer {...footer} />
 			</body>
 		</html>
 	)

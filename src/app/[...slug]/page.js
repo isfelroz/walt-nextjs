@@ -33,7 +33,7 @@ export default async function Page({ params }) {
 	return (
 		<main className="isolate">
 			{hero && <HeroHome {...hero} />}
-			{blocks?.length && <Flexible offset={true} blocks={blocks} />}
+			{blocks?.length && <Flexible offset={false} blocks={blocks} />}
 		</main>
 	)
 }
