@@ -20,7 +20,6 @@ export default function ColumnsImageText({ block_options, content }) {
 }
 
 function ColItem({ image, text }) {
-	console.log(image)
 	return (
 		<article className=" flex flex-col gap-12">
 			<div className="h-[100px] [&>div]:w-full [&>div]:h-full">

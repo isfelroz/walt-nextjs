@@ -2,7 +2,6 @@ import clsx from 'clsx'
 import DynamicBlock from '../blocks/dynamic-block'
 
 export default function Flexible({ blocks, offset = false }) {
-	console.log({ blocks })
 	const classes = clsx('flex flex-col')
 	return (
 		<div className={classes}>
