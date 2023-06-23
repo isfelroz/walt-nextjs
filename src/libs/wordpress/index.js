@@ -100,8 +100,8 @@ export async function getPageByPath({ path }) {
 	try {
 		const res = await wordpressFetch({
 			path: '/pages/' + path,
-			// next: { revalidate: 900 },
-			cache: 'no-store',
+			next: { revalidate: 900 },
+			// cache: 'no-store',
 		})
 
 		const data = await res?.body?.data
