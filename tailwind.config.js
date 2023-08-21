@@ -6,6 +6,10 @@ module.exports = {
 		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
 	],
 	theme: {
+		container: {
+			center: true,
+			padding: '2rem',
+		},
 		extend: {
 			fontFamily: {
 				strawford: 'var(--strawford)',
@@ -45,6 +49,12 @@ module.exports = {
 						lineHeight: 'var(--h2-leading)',
 						fontWeight: 'var(--h2-weight)',
 						fontFamily: 'var(--h2-family)',
+					},
+				],
+				watermark: [
+					'7.5rem',
+					{
+						fontWeight: '500',
 					},
 				],
 			},

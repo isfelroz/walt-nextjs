@@ -13,12 +13,14 @@ const PADDING_BOTTOM = {
 	xlarge: 'pb-[var(--xl-space)]',
 	none: '',
 	medium: 'pb-8',
+	large: 'pb-12',
 }
 const PADDING_TOP = {
 	xlarge: 'pt-[var(--xl-space)]',
 	'4xlarge': 'pt-[208px]',
 	none: '',
 	medium: 'pt-8',
+	large: 'pt-12',
 }
 export default function Block({ children, options = {} }) {
 	const { show, id, palette, padding_height_bottom, padding_height_top } = {

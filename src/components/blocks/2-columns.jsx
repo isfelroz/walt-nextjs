@@ -20,7 +20,14 @@ const COLUMNS_WIDTH = {
 }
 
 export default function TwoColumns({ content, block_options = {} }) {
-	const { column_width, gap, align, justify, items } = { ...defaultOptions, ...content }
+	const {
+		column_width,
+		gap,
+		align,
+		justify,
+		items,
+		watermark = '',
+	} = { ...defaultOptions, ...content }
 
 	const classes = clsx(
 		'grid grid-cols-1 gap-[30px] md:gap-[63px] lg:gap-[126px]',
@@ -31,6 +38,11 @@ export default function TwoColumns({ content, block_options = {} }) {
 	return (
 		<Block options={block_options}>
 			<Container>
+				{watermark && (
+					<div className="text-watermark leading-[1] opacity-5 mb-[-40px] relative z-0">
+						{watermark}
+					</div>
+				)}
 				<div className={classes}>
 					{items?.length &&
 						items.map((item, key) =>

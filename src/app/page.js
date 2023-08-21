@@ -12,6 +12,8 @@ export default async function Home() {
 	}
 	const { hero, blocks } = home?.acf
 
+	console.log(blocks)
+
 	return (
 		<main className="isolate overflow-x-hidden">
 			{hero && <HeroHome {...hero} />}

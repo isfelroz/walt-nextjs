@@ -4,11 +4,10 @@ import Text from '../shared/text'
 import Block from './block'
 
 export default function ColumnsImageText({ block_options, content }) {
-	const { watermark = '', columns = [] } = content
+	const { columns = [] } = content
 	return (
 		<Block options={block_options}>
 			<Container>
-				<div className="text-[6rem] leading-[1] opacity-5 mb-[-40px] relative z-0">{watermark}</div>
 				<div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4 relative z-10">
 					{columns.map((col, key) => (
 						<ColItem key={key} {...col} />
