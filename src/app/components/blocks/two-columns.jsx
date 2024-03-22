@@ -6,7 +6,7 @@ import clsx from 'clsx'
 const defaultOptions = {
 	column_width: '50',
 	gap: 'none',
-	align: 'start',
+	align: 'center',
 	justify: 'center',
 	items: [],
 }
@@ -19,6 +19,10 @@ const COLUMNS_WIDTH = {
 	70: 'lg:grid-cols-[70%_1fr]',
 }
 
+const ALIGN = {
+	center: 'items-center',
+}
+
 export default function TwoColumns({ content, block_options = {} }) {
 	const {
 		column_width,
@@ -26,22 +30,21 @@ export default function TwoColumns({ content, block_options = {} }) {
 		align,
 		justify,
 		items,
-		watermark = '',
+		watermark_title = '',
 	} = { ...defaultOptions, ...content }
 
 	const classes = clsx(
 		'grid grid-cols-1 gap-[30px] md:gap-[63px] lg:gap-[126px]',
 		items.length > 1 ? 'md:grid-cols-2' : '',
-		items.length > 1 ? COLUMNS_WIDTH[column_width] : ''
+		items.length > 1 ? COLUMNS_WIDTH[column_width] : '',
+		ALIGN[align]
 	)
 
 	return (
 		<Block options={block_options}>
 			<Container>
-				{watermark && (
-					<div className="text-watermark leading-[1] opacity-5 mb-[-40px] relative z-0">
-						{watermark}
-					</div>
+				{watermark_title && (
+					<div className="text-watermark leading-[1] opacity-5 relative z-0">{watermark_title}</div>
 				)}
 				<div className={classes}>
 					{items?.length &&

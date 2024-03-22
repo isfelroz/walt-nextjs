@@ -4,7 +4,7 @@ export function mapThemeGlobals({ colors = null, fonts = null }) {
 	let fontsVars = ''
 
 	if (colors?.length) {
-		colors.forEach(({ palette }, key) => {
+		colors.forEach((palette, key) => {
 			const [name, variables] = mapPalette(palette)
 			const stringPalette = `.${name}{ ${variables}}`
 

@@ -52,7 +52,7 @@ module.exports = {
 					},
 				],
 				watermark: [
-					'7.5rem',
+					'clamp(80px, 11vw, 200px)',
 					{
 						fontWeight: '500',
 					},

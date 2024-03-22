@@ -1,5 +1,5 @@
-import Container from '@/components/shared/container'
-import WaltIcon from '@/components/icons/walt-icon'
+import Container from '@/app/components/shared/container'
+import WaltIcon from '@/app/components/icons/walt-icon'
 import HtmlText from '../shared/html-text'
 import Image from 'next/image'
 import Text from '../shared/text'
@@ -14,16 +14,13 @@ export default function HeroHome({
 	text_right = null,
 	images_slider = null,
 	display = false,
-	palette = null,
+	palette_choice = null,
 }) {
 	if (!display) return null
 
 	return (
 		<section
-			className={clsx(
-				'bg-background flex flex-col [&_.swiper]:mb-[-100px]',
-				palette?.palette_choice
-			)}
+			className={clsx('bg-background flex flex-col [&_.swiper]:mb-[-100px]', palette_choice)}
 		>
 			<Container>
 				<TextText text1={text_left} text2={text_right} />

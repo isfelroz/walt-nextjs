@@ -4,7 +4,7 @@ const defaultOptions = {
 	show: true,
 	id: '',
 	class: '',
-	palette: { palette_choice: 'light' },
+	palette_choice: 'light',
 	padding_height_top: 'xlarge',
 	padding_height_bottom: 'xlarge',
 }
@@ -23,7 +23,7 @@ const PADDING_TOP = {
 	large: 'pt-12',
 }
 export default function Block({ children, options = {} }) {
-	const { show, id, palette, padding_height_bottom, padding_height_top } = {
+	const { show, id, palette_choice, padding_height_bottom, padding_height_top } = {
 		...defaultOptions,
 		...options,
 	}
@@ -31,7 +31,7 @@ export default function Block({ children, options = {} }) {
 
 	const classes = clsx(
 		'bg-background',
-		palette?.palette_choice,
+		palette_choice,
 		PADDING_BOTTOM[padding_height_bottom],
 		PADDING_TOP[padding_height_top]
 	)

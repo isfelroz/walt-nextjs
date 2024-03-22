@@ -1,10 +1,11 @@
 import './globals.css'
 import localFont from 'next/font/local'
 import { Inter } from 'next/font/google'
-import { getGlobals } from '@/libs/wordpress'
-import Header from '@/components/globals/header'
-import Theme from '@/components/globals/theme'
-import Footer from '@/components/globals/footer'
+import { getGlobals, getMenuByLocation } from '@/libs/wordpress'
+import Header from '@/app/components/globals/header'
+import Theme from '@/app/components/globals/theme'
+import Footer from '@/app/components/globals/footer'
+import { getMediaById } from '@/libs/wordpress'
 
 export const metadata = {
 	title: 'Create Next App',
@@ -28,14 +29,17 @@ const strawfond = localFont({
 })
 
 export default async function RootLayout({ children }) {
-	const { header, themeVars, footer } = await getGlobals()
+	const { header, themeVars = null, footer = null } = await getGlobals()
+	const menuHeader = await getMenuByLocation('main_menu')
+	const logoImage = await getMediaById(header.logo)
+
 	return (
 		<html lang="en" className="bg-background">
 			<body className={`${strawfond.variable} ${strawfond.className} isolate`}>
 				<Theme variables={themeVars} />
-				<Header {...header} />
+				<Header menu={menuHeader} logo={logoImage} />
 				{children}
-				<Footer {...footer} />
+				{/* {footer ?? <Footer {...footer} />} */}
 			</body>
 		</html>
 	)

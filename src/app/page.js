@@ -1,8 +1,8 @@
 // import DynamicBlock from '@/components/blocks/dynamic-block'
-import Flexible from '@/components/sections/flexible'
-import HeroHome from '@/components/sections/hero-home'
+import Flexible from '@/app/components/sections/flexible'
+import HeroHome from '@/app/components/sections/hero-home'
 import { getHomePage } from '@/libs/wordpress'
-import Image from 'next/image'
+import { notFound } from 'next/navigation'
 
 export default async function Home() {
 	const home = await getHomePage()

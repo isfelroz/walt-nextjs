@@ -1,5 +1,5 @@
-import Flexible from '@/components/sections/flexible'
-import HeroHome from '@/components/sections/hero-home'
+import Flexible from '@/app/components/sections/flexible'
+import HeroHome from '@/app/components/sections/hero-home'
 import { getPageByPath, getPagesSlugs } from '@/libs/wordpress'
 import { notFound } from 'next/navigation'
 

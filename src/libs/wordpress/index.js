@@ -50,15 +50,19 @@ export async function getGlobals() {
 			next: { revalidate: 900 },
 		})
 		const data = await res?.body?.data
+
 		if (!data) throw new Error('No globals')
 
-		const { theme } = data
-		const mappedTheme = mapThemeGlobals(theme)
-		data.themeVars = mappedTheme
+		const { header, footer, theme } = data
 
-		return data
+		if (!theme) return { header, footer }
+
+		const mappedTheme = mapThemeGlobals(theme)
+
+		return { header, footer, themeVars: mappedTheme }
 	} catch (e) {
-		return null
+		console.log(e)
+		return {}
 	}
 }
 
@@ -113,6 +117,26 @@ export async function getPageByPath({ path }) {
 }
 
 /* -------------------------------------------------------------------------- */
+/*                                    POSTS                                   */
+/* -------------------------------------------------------------------------- */
+
+export async function getPosts({ postType, postsPerPage }) {
+	try {
+		const res = await wordpressFetch({
+			path: '/pages/' + path,
+			next: { revalidate: 900 },
+			// cache: 'no-store',
+		})
+
+		const data = await res?.body?.data
+		if (!data) throw new Error('No data found')
+		return data
+	} catch (e) {
+		return null
+	}
+}
+
+/* -------------------------------------------------------------------------- */
 /*                                    MEDIA                                   */
 /* -------------------------------------------------------------------------- */
 
@@ -123,6 +147,25 @@ export async function getMediaById(id) {
 			next: { revalidate: 900 },
 		})
 
+		const data = await res?.body?.data
+
+		if (!data) throw new Error('No data found')
+		return data
+	} catch (e) {
+		return null
+	}
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    MENUS                                   */
+/* -------------------------------------------------------------------------- */
+
+export async function getMenuByLocation(location) {
+	try {
+		const res = await wordpressFetch({
+			path: '/menus/' + location,
+			next: { revalidate: 900 },
+		})
 		const data = await res?.body?.data
 		if (!data) throw new Error('No data found')
 		return data
